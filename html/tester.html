@@ -4,22 +4,33 @@
         <link rel="stylesheet" href="css/pure-min.css" />
         <!-- Library stylesheets -->
         <link rel="stylesheet" href="css/app.css" />
-        <title> Web socket tester </title>
+        <title> WebSockets tester </title>
     </head>
     <body>
         <div id="app_header">
-            <h3 id="app_header_title"> Web Socket test utility. </h3>
+            <h3 class="header_title"> WebSockets test utility. </h3>
         </div>
         <div id="app_center">
             <div class="pure-g" style="height: 100%">
                 <div class="pure-u-3-5">
                     <div class="app_center_ws_config">
-                       <p>Web Socket config</p>
+                       <h4 class="header_title"> WebSockets control interface</h4>
+                       <form class="pure-form pure-form-aligned">
+                           <fieldset style="padding-left: 10px">
+                               <label for="ws_address">WebSockets server address: </label>
+                               <input type="text" id="ws_address" placeholder="127.0.0.1:8080/chat" />
+                               <div class="pure-button-group" role="group">
+                                   <button class="pure-button">Open</button>
+                                   <button class="pure-button">Close</button>
+                                   <button class="pure-button">Ping</button>
+                               </div>
+                           </fieldset>
+                       </form>
                     </div>
                 </div>
                 <div class="pure-u-2-5">
                     <div class="app_center_ws_logs">
-                        <p>Logs</p>
+                        <h4 class="header_title"> WebSockets interaction logs</h4>
                     </div>
                 </div>
             </div>

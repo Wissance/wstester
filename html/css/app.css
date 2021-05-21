@@ -4,6 +4,10 @@
     border: solid 4px blueviolet;
 }
 
+.header_title {
+    padding-left: 20px
+}
+
 #app_header_title {
     padding-left: 20px
 }
