@@ -1,14 +1,30 @@
 <html>
     <head>
-        <link rel="stylesheet" href="/css/pure-min.css" />
-        <title> Web socket API tester </title>
+        <!-- Library stylesheets -->
+        <link rel="stylesheet" href="css/pure-min.css" />
+        <!-- Library stylesheets -->
+        <link rel="stylesheet" href="css/app.css" />
+        <title> Web socket tester </title>
     </head>
     <body>
-        <div id="header">
+        <div id="app_header">
+            <h3 id="app_header_title"> Web Socket test utility. </h3>
         </div>
-        <div id="center">
+        <div id="app_center">
+            <div class="pure-g" style="height: 100%">
+                <div class="pure-u-3-5">
+                    <div class="app_center_ws_config">
+                       <p>Web Socket config</p>
+                    </div>
+                </div>
+                <div class="pure-u-2-5">
+                    <div class="app_center_ws_logs">
+                        <p>Logs</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div id="footer">
+        <div id="app_footer">
         </div>
     </body>
 </html>

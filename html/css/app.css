@@ -1,0 +1,31 @@
+#app_header {
+    width: 90%;
+    height: 15%;
+    border: solid 4px blueviolet;
+}
+
+#app_header_title {
+    padding-left: 20px
+}
+
+#app_center {
+    width: 90%;
+    height: 70%;
+    border: solid 4px green;
+}
+
+.app_center_ws_config {
+    border: solid 2px blue;
+    height: 100%;
+}
+
+.app_center_ws_logs {
+    border: solid 2px brown;
+    height: 100%;
+}
+
+#app_footer {
+    width: 90%;
+    height: 10%;
+    border: solid 4px orange;
+}
