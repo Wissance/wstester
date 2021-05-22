@@ -1,30 +1,37 @@
+html {
+    background-color: black;
+    color: white;
+}
+
+
 #app_header {
     width: 90%;
     height: 10%;
-    border: solid 4px blueviolet;
+    /*border: solid 4px blueviolet;*/ /*debug only*/
 }
 
 .header_title {
-    padding-left: 20px
+    padding-left: 20px;
+    padding-top: 5px;
 }
 
 #app_header_title {
-    padding-left: 20px
+    padding-left: 20px;
 }
 
 #app_center {
     width: 90%;
     height: 75%;
-    border: solid 4px green;
+    /*border: solid 4px green;*/ /*debug only*/
 }
 
 .app_center_ws_config {
-    border: solid 2px blue;
+    /*border: solid 2px blue;*/ /*debug only*/
     height: 100%;
 }
 
 .app_center_ws_logs {
-    border: solid 2px brown;
+    /*border: solid 2px brown;*/ /*debug only*/
     height: 100%;
 }
 
@@ -54,7 +61,7 @@
 .logs_area {
     margin-left: 10px;
     width: 80%;
-    height: 80%;
+    height: 71%;
     resize: none;
     overflow-y: auto;
 }
@@ -62,5 +69,5 @@
 #app_footer {
     width: 90%;
     height: 10%;
-    border: solid 4px orange;
+    /*border: solid 4px orange;*/ /*debug only*/
 }
