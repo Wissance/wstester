@@ -15,6 +15,11 @@ html {
     padding-top: 5px;
 }
 
+.main_header_title {
+    padding-left: 20px;
+    padding-top: 25px;
+}
+
 #app_header_title {
     padding-left: 20px;
 }

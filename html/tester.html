@@ -8,7 +8,7 @@
     </head>
     <body>
         <div id="app_header">
-            <h3 class="header_title"> WebSockets test utility. </h3>
+            <h2 class="main_header_title"> WebSockets test utility. </h2>
         </div>
         <hr/>
         <div id="app_center">
@@ -25,14 +25,22 @@
                                <div class="pure-control-group">
                                    <label class="pure-u-1-3" for="ws_payload">Payload: </label>
                                    <textarea id="ws_payload" class="pure-u-2-3 payload_area" placeholder="payload (json or other)"></textarea>
+                                   <br/> <br/>
+                                   <label class="pure-u-1-3"></label>
+                                   <div class="pure-u-2-3">
+                                       <button class="pure-button btn_open">Open</button>
+                                       <button class="pure-button btn_ping">Ping</button>
+                                       <button class="pure-button btn_close">Close</button>
+                                       <button id="ws_send" type="submit" class="pure-button pure-button-primary">Send</button>
+                                   </div>
                                </div>
-                               <div class="pure-control-group">
+                               <!--<div class="pure-control-group">
                                     <button class="pure-button btn_open">Open</button>
                                     <button class="pure-button btn_ping">Ping</button>
                                     <button class="pure-button btn_close">Close</button>
                                     <button id="ws_send" type="submit" class="pure-button pure-button-primary">Send</button>
                                    
-                               </div>
+                               </div>-->
                            </fieldset>
                        </form>
                     </div>
