@@ -1,6 +1,6 @@
 #app_header {
     width: 90%;
-    height: 15%;
+    height: 10%;
     border: solid 4px blueviolet;
 }
 
@@ -14,7 +14,7 @@
 
 #app_center {
     width: 90%;
-    height: 70%;
+    height: 75%;
     border: solid 4px green;
 }
 
@@ -26,6 +26,37 @@
 .app_center_ws_logs {
     border: solid 2px brown;
     height: 100%;
+}
+
+.btn_open {
+    background: rgb(100, 184, 65); /* this is a green */
+}
+
+.button-error {
+    background: rgb(202, 60, 60); /* this is a maroon */
+}
+
+.btn_close {
+    background: rgb(255, 164, 80); /* this is an orange */
+}
+
+.btn_ping {
+    background: rgb(66, 184, 221); /* this is a light blue */
+}
+
+.payload_area {
+    height: 63%;
+    resize: none;
+    overflow-y: auto;
+}
+
+
+.logs_area {
+    margin-left: 10px;
+    width: 80%;
+    height: 80%;
+    resize: none;
+    overflow-y: auto;
 }
 
 #app_footer {
