@@ -64,10 +64,16 @@
             var socket = null;
 
             function openWsServer() {
-                var address = $('#ws_address').val();
+                var address = $("#ws_address").val();
                 socketAddress = address;
                 console.log("Websocket open server: " + address);
                 socket = new WebSocket(socketAddress)
+                // todo: analyze was socket conn establish was successful or not
+                // todo: UMV: log to logs textarea
+                socket.onmessage = function (event) {
+                    console.log("Got message from server");
+                    // todo: UMV: log to logs textarea
+                }
             }
 
             function closeWsServer() {
@@ -75,6 +81,7 @@
                 if (socket != null) {
                     socket.close();
                     socket = null;
+                    // todo: UMV: log to logs textarea
                 }
             }
 
@@ -83,7 +90,14 @@
             }
 
             function sendDataToWsServer() {
-                console.log("Websocket send data");
+                if (socket != null) {
+                    console.log("Websocket send data");
+                    var message = $("#ws_payload").val();
+                    if (message.startsWith("{")
+                        message = JSON.stringify(message);
+                    socket.send(message);
+                    // todo: UMV: add log to logs textarea here
+                }
             }
         </script>
     </body>
