@@ -44,8 +44,8 @@
                         <h4 class="header_title"> WebSockets interaction logs</h4>
                            <form class="pure-form pure-form-aligned">
                                <fieldset style="padding-left: 10px">
-                                   <label for="ws_payload">Logs: </label>
-                                   <textarea readonly id="ws_payload" class="logs_area" placeholder="logs will be displayed here"></textarea>
+                                   <label for="ws_logs">Logs: </label>
+                                   <textarea readonly id="ws_logs" class="logs_area" placeholder="logs will be displayed here"></textarea>
                                </fieldset>
                            </form>
                     </div>
@@ -98,8 +98,27 @@
             function buildServerAddress(address) {
             }
 
-            function createLogMessage(messageType, messageData) {
+            function logWsEvent(messageType, messageData) {
+                var logMsg = createLogMessage(messageType, messageData);
+                $("#ws_logs").append(logMsg);
             }
+
+            function createLogMessage(messageType, messageData) {
+                var dateStr = getFormattedDate();
+                var logStr = dateStr + ": " + messageType;
+                if (messageData != null && messageData.length > 0) {
+                    logStr = logStr + " : " + messageData
+                }
+                return messageData;
+            }
+
+            function getFormattedDate() {
+                var date = new Date();
+                var str = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + " " +  date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+
+                return str;
+            }
+
         </script>
     </body>
 </html>
