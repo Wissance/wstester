@@ -30,7 +30,6 @@
                                    <label class="pure-u-1-3"></label>
                                    <div class="pure-u-2-3">
                                        <button type="button" class="pure-button btn_open" onclick="openWsServer()">Open</button>
-                                       <button type="button" class="pure-button btn_ping" onclick="pingWsServer()">Ping</button>
                                        <button type="button" class="pure-button btn_close" onclick="closeWsServer()">Close</button>
                                        <button type="button" id="ws_send" 
                                                class="pure-button pure-button-primary" onclick="sendDataToWsServer()">Send</button>
@@ -85,10 +84,6 @@
                 }
             }
 
-            function pingWsServer() {
-                console.log("Websocket ping");
-            }
-
             function sendDataToWsServer() {
                 if (socket != null) {
                     console.log("Websocket send data");
@@ -98,6 +93,12 @@
                     socket.send(message);
                     // todo: UMV: add log to logs textarea here
                 }
+            }
+
+            function buildServerAddress(address) {
+            }
+
+            function createLogMessage(messageType, messageData) {
             }
         </script>
     </body>
