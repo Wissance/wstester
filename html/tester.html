@@ -4,6 +4,7 @@
         <link rel="stylesheet" href="css/pure-min.css" />
         <!-- Library stylesheets -->
         <link rel="stylesheet" href="css/app.css" />
+        <script type="text/javascript" src="js/jquery-3.6.0.js"></script>
         <title> WebSockets tester </title>
     </head>
     <body>
@@ -20,7 +21,7 @@
                            <fieldset style="padding-left: 10px">
                                <div class="pure-control-group">
                                    <label class="pure-u-1-3" for="ws_address">Server address: </label>
-                                   <input type="text" id="ws_address" class="pure-u-2-3" placeholder="i.e. 127.0.0.1:8080/chat" />
+                                   <input type="text" id="ws_address" class="pure-u-2-3" placeholder="i.e. ws://127.0.0.1:8080/chat" />
                                </div>
                                <div class="pure-control-group">
                                    <label class="pure-u-1-3" for="ws_payload">Payload: </label>
@@ -35,13 +36,6 @@
                                                class="pure-button pure-button-primary" onclick="sendDataToWsServer()">Send</button>
                                    </div>
                                </div>
-                               <!--<div class="pure-control-group">
-                                    <button class="pure-button btn_open">Open</button>
-                                    <button class="pure-button btn_ping">Ping</button>
-                                    <button class="pure-button btn_close">Close</button>
-                                    <button id="ws_send" type="submit" class="pure-button pure-button-primary">Send</button>
-                                   
-                               </div>-->
                            </fieldset>
                        </form>
                     </div>
@@ -65,12 +59,23 @@
             <h6 class="footer_title"> Please support our work <a href="https://github.com/Wissance/wstester"> rise a star on github</a>! and/or subscribe to our media:  </h6>
         </div>
         <script type="text/javascript">
+
+            var socketAddress = "";
+            var socket = null;
+
             function openWsServer() {
-                console.log("Websocket open server");
+                var address = $('#ws_address').val();
+                socketAddress = address;
+                console.log("Websocket open server: " + address);
+                socket = new WebSocket(socketAddress)
             }
 
             function closeWsServer() {
                 console.log("Websocket close server");
+                if (socket != null) {
+                    socket.close();
+                    socket = null;
+                }
             }
 
             function pingWsServer() {
