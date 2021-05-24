@@ -1,13 +1,14 @@
 <html>
     <head>
+        <title> WebSockets tester </title>
         <!-- Library stylesheets -->
         <link rel="stylesheet" href="css/pure-min.css" />
         <!-- Library stylesheets -->
         <link rel="stylesheet" href="css/app.css" />
         <script type="text/javascript" src="js/jquery-3.6.0.js"></script>
-        <title> WebSockets tester </title>
+        <script type="text/javascript" src="js/app.js"></script>
     </head>
-    <body>
+    <body onload="preparePage()">
         <div id="app_header">
             <h2 class="main_header_title"> WebSockets test utility. </h2>
         </div>
@@ -54,74 +55,9 @@
         </div>
         <hr/>
         <div id="app_footer">
-            <h6 class="footer_title">This software was developed by <a href="https://wissance.com">Wissance LLC</a>, 2019-2021+ </h6>
+            <h6 class="footer_title">This software was developed by <a href="https://wissance.com">Wissance LLC</a>, 2019-<span id="current_year">xxxx</span> </h6>
             <h6 class="footer_title"> Please support our work <a href="https://github.com/Wissance/wstester"> rise a star on github</a>! and/or subscribe to our media:  </h6>
         </div>
-        <script type="text/javascript">
 
-            var socketAddress = "";
-            var socket = null;
-
-            function openWsServer() {
-                var address = $("#ws_address").val();
-                socketAddress = buildServerAddress(address, false);  // todo: umv: add checkbox here
-                console.log("Websocket open server: " + address);
-                socket = new WebSocket(socketAddress)
-                // todo: analyze was socket conn establish was successful or not
-                // todo: UMV: log to logs textarea
-                socket.onmessage = function (event) {
-                    console.log("Got message from server");
-                    // todo: UMV: log to logs textarea
-                }
-            }
-
-            function closeWsServer() {
-                console.log("Websocket close server");
-                if (socket != null) {
-                    socket.close();
-                    socket = null;
-                    // todo: UMV: log to logs textarea
-                }
-            }
-
-            function sendDataToWsServer() {
-                if (socket != null) {
-                    console.log("Websocket send data");
-                    var message = $("#ws_payload").val();
-                    if (message.startsWith("{")
-                        message = JSON.stringify(message);
-                    socket.send(message);
-                    // todo: UMV: add log to logs textarea here
-                }
-            }
-
-            function buildServerAddress(address, secure) {
-                if (!(address.startsWith("ws://") || address.startsWith("wss://")))
-                    return secure ? "wss://" + address : "ws://" + address;
-                return address;
-            }
-
-            function logWsEvent(messageType, messageData) {
-                var logMsg = createLogMessage(messageType, messageData);
-                $("#ws_logs").append(logMsg);
-            }
-
-            function createLogMessage(messageType, messageData) {
-                var dateStr = getFormattedDate();
-                var logStr = dateStr + ": " + messageType;
-                if (messageData != null && messageData.length > 0) {
-                    logStr = logStr + " : " + messageData
-                }
-                return messageData;
-            }
-
-            function getFormattedDate() {
-                var date = new Date();
-                var str = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + " " +  date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
-
-                return str;
-            }
-
-        </script>
     </body>
 </html>
