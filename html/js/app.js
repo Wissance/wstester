@@ -14,10 +14,12 @@
         socket = new WebSocket(socketAddress)
                 // todo: analyze was socket conn establish was successful or not
                 // todo: UMV: log to logs textarea
-        logWsEvent("Web socket connection opened", null);
+        logWsEvent("Websocket connection opened", null);
         socket.onmessage = function (event) {
             console.log("Got message from server");
-            // todo: UMV: log to logs textarea
+            if (event.data != null) {
+                logWsEvent("Received data from websocket server", event.data);
+            }
          }
     }
 
@@ -26,7 +28,7 @@
         if (socket != null) {
             socket.close();
             socket = null;
-            logWsEvent("Web socket connection closed", null);
+            logWsEvent("Websocket connection closed", null);
         }
     }
 
