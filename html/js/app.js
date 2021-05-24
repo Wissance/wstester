@@ -26,7 +26,7 @@
         if (socket != null) {
             socket.close();
             socket = null;
-             // todo: UMV: log to logs textarea
+            logWsEvent("Web socket connection closed", null);
         }
     }
 
@@ -43,9 +43,9 @@
     }
 
     function buildServerAddress(address, secure) {
-                if (!(address.startsWith("ws://") || address.startsWith("wss://")))
-                    return secure ? "wss://" + address : "ws://" + address;
-                return address;
+        if (!(address.startsWith("ws://") || address.startsWith("wss://")))
+            return secure ? "wss://" + address : "ws://" + address;
+        return address;
     }
 
     function logWsEvent(messageType, messageData) {
@@ -59,6 +59,7 @@
         if (messageData != null && messageData.length > 0) {
             logStr = logStr + " : " + messageData
         }
+        logStr += "\n";
         return logStr;
     }
 
