@@ -38,7 +38,7 @@
                 message = JSON.stringify(message);
             }
             socket.send(message);
-            // todo: UMV: add log to logs textarea here
+            logWsEvent("Data was send", message);
         }
     }
 
