@@ -64,7 +64,7 @@
 
             function openWsServer() {
                 var address = $("#ws_address").val();
-                socketAddress = address;
+                socketAddress = buildServerAddress(address, false);  // todo: umv: add checkbox here
                 console.log("Websocket open server: " + address);
                 socket = new WebSocket(socketAddress)
                 // todo: analyze was socket conn establish was successful or not
@@ -95,7 +95,10 @@
                 }
             }
 
-            function buildServerAddress(address) {
+            function buildServerAddress(address, secure) {
+                if (!(address.startsWith("ws://") || address.startsWith("wss://")))
+                    return secure ? "wss://" + address : "ws://" + address;
+                return address;
             }
 
             function logWsEvent(messageType, messageData) {
