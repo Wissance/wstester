@@ -14,6 +14,7 @@
         socket = new WebSocket(socketAddress)
                 // todo: analyze was socket conn establish was successful or not
                 // todo: UMV: log to logs textarea
+        logWsEvent("Web socket connection opened", null);
         socket.onmessage = function (event) {
             console.log("Got message from server");
             // todo: UMV: log to logs textarea
@@ -58,7 +59,7 @@
         if (messageData != null && messageData.length > 0) {
             logStr = logStr + " : " + messageData
         }
-        return messageData;
+        return logStr;
     }
 
     function getFormattedDate() {
