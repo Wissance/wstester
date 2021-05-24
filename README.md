@@ -2,7 +2,7 @@
 
 ## Description
 
-A simple utility for testing websocket interaction with servers written on pure JS and HTML, NO npm and dances.
+A simple utility for testing websocket interaction with servers written on pure JS and HTML, NO npm and dancing with a tambourine.
 Current 
 
 ## How to use
